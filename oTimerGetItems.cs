@@ -44,7 +44,6 @@ namespace LBAHUD
 
         public void AddItem(Action<ushort> act, uint memoryOffset, ushort size)
         {
-
             itemAdded(new ActionItem(act, new Item(memoryOffset, size)));
         }
 
@@ -107,6 +106,15 @@ namespace LBAHUD
                 }
             if (0 == itemList.Count) StopTimer();
             return removed;
+        }
+
+        public void RemoveAll()
+        {
+            StopTimer();
+            while (0 != itemList.Count)
+                RemoveIfExists(itemList[itemList.Count - 1].item.memoryOffset);
+            memory = null;
+            memory = new Mem();
         }
 
         public bool UpdateItem(uint memoryOffset, ushort newVal)

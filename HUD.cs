@@ -139,7 +139,8 @@ namespace LBAHUD
         public void Refresh()
         {
             byte LBAVer = m.DetectLBAVersion();
-            otgi = new oTimerGetItems();
+            if(null == otgi) otgi = new oTimerGetItems();
+            else otgi.RemoveAll();
             if (1 == LBAVer)
             {
                 sbHealth.Max = 50;
@@ -266,11 +267,21 @@ namespace LBAHUD
 
         private void sbMagic_Load(object sender, EventArgs e)
         {
+            if (IsInDesignMode()) return;
             //fullCloverBox = Image.FromFile("./files/fullCloverBox.png");
             fullCloverBox = Image.FromFile(getFilesPath() + "/files/fullCloverBox.png");
             emptyCloverBox = Image.FromFile(getFilesPath() + "/files/emptyCloverBox.png");
             initialCloverBoxLoad(1, 2);
             Refresh();
+        }
+
+        public static bool IsInDesignMode()
+        {
+            if (Application.ExecutablePath.IndexOf("devenv.exe", StringComparison.OrdinalIgnoreCase) > -1)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void pbHealth_Click(object sender, EventArgs e)
