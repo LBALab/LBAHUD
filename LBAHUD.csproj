@@ -89,6 +89,7 @@
     <Content Include="files\kash.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="files\kash_new.png" />
     <Content Include="files\LBA2Key.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

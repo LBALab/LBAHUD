@@ -24,7 +24,7 @@ namespace LBAHUD
         private byte clovers;
         private int kashes;
         private int zilitos;
-        private int magicMaxWidth = 112;
+        private int magicMaxWidth = 100;
         oTimerGetItems otgi = new oTimerGetItems();
         private byte Health
         {
@@ -225,11 +225,11 @@ namespace LBAHUD
         }
         private void initialCloverBoxLoad(int cloverCount, int cloverBoxCount)
         {
-            int pictureBoxXPos = 429;
+            int pictureBoxXPos = 388;
             int pictureBoxYPos = 0;
             int pictureBoxPadding = 1;
-            int pictureBoxWidth = 20;
-            Size boxSize = new Size(pictureBoxWidth, 20);
+            int pictureBoxWidth = 24;
+            Size boxSize = new Size(pictureBoxWidth, 24);
 
             for (int i = 0; i < pbCloverBoxes.Length; i++)
             {
